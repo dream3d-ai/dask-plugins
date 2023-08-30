@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "dask-plugins"
+version = "0.1.0"
+description = ""
+authors = ["Tony Francis <tony@dream3d.com>"]
+readme = "README.md"
+packages = [{include = "dask_plugins"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+dask = "^2023.8.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+mypy = "^1.5.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
