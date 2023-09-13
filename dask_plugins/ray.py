@@ -20,7 +20,7 @@ class RayWorkerPlugin(WorkerPlugin):
         ray.init(
             address=self.ray_address,
             namespace=self.namespace,
-            **kwargs,
+            **self.kwargs,
         )
 
     def teardown(self, worker):
@@ -35,13 +35,11 @@ class RaySchedulerPlugin(SchedulerPlugin):
     def __init__(
         self,
         ray_address: str,
-        packages: str | None = None,
         namespace: str | None = None,
         **kwargs,
     ):
         self.ray_address = ray_address
         self.namespace = namespace
-        self.object_store_memory = object_store_memory
         self.kwargs = kwargs
 
     def setup(self, scheduler):
@@ -50,7 +48,7 @@ class RaySchedulerPlugin(SchedulerPlugin):
         ray.init(
             address=self.ray_address,
             namespace=self.namespace,
-            **kwargs,
+            **self.kwargs,
         )
 
     def teardown(self, scheduler):
